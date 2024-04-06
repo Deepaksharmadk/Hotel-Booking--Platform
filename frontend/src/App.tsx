@@ -1,14 +1,15 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Layout from "./Layouts/Layouts";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h2 className="bg-black">hello</h2>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout children={undefined}></Layout>} />
+        </Routes>
+      </Router>
     </>
   );
 }
