@@ -9,11 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.get("/api/test", async (req: Request, res: Response) => {
-  res.json({
-    message: "hello world",
-  });
-});
+import authRoutes from "./routes/user.route";
+app.use("/api/auth", authRoutes);
 app.listen(5000, () => {
   console.log("server running on port 5000");
 });
