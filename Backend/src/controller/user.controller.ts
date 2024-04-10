@@ -72,3 +72,9 @@ export const verifyUser = (req: Request, res: Response) => {
   res.status(200).send({ userId: req.userId });
   console.log(res.status(200).send({ userId: req.userId }));
 };
+export const logOut = async (req: Request, res: Response) => {
+  res.cookie("auth_token", "", {
+    expires: new Date(0),
+  });
+  res.status(200).send("Logged out successfully");
+};
