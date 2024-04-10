@@ -3,6 +3,7 @@ import "./App.css";
 import Layout from "./Layouts/Layouts";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
@@ -23,6 +24,14 @@ function App() {
             element={
               <Layout>
                 <Register />
+              </Layout>
+            }
+          />
+          <Route
+            path="/sign-in"
+            element={
+              <Layout>
+                <SignIn />
               </Layout>
             }
           />
