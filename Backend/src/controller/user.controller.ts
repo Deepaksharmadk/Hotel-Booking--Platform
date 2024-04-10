@@ -3,11 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { validationResult } from "express-validator";
-export const Register = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const Register = async (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ message: errors.array() });
@@ -33,7 +29,7 @@ export const Register = async (
       secure: process.env.NODE_ENV === "production",
       maxAge: 86400000, //24hour
     });
-    return res.status(200).send({ token, message: "User registered OK" });
+    return res.status(200).send({ message: "User registered successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Something went wrong" });
@@ -71,4 +67,8 @@ export const Login = async (req: Request, res: Response) => {
     console.log(error);
     res.status(500).json({ message: "Something went wrong" });
   }
+};
+export const verifyUser = (req: Request, res: Response) => {
+  res.status(200).send({ userId: req.userId });
+  console.log(res.status(200).send({ userId: req.userId }));
 };
