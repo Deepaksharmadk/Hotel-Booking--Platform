@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
+import path from "path";
 mongoose.connect(process.env.MONGO_URL as string).then(() => {
   console.log("database connected");
 });
@@ -17,7 +18,9 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 import authRoutes from "./routes/user.route";
+
 app.use("/api/auth", authRoutes);
 app.listen(5000, () => {
   console.log("server running on port 5000");
