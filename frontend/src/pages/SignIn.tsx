@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { useAppContext } from "../context/AppContext";
 import * as apiClient from "../api/apiClient";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export type SignInFormData = {
   email: string;
@@ -20,12 +20,12 @@ function SignIn() {
   // const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const location = useLocation();
+  // const location = useLocation();
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: async () => {
       showToast({ message: "Sign in Successful!", type: "SUCCESS" });
       await queryClient.invalidateQueries("validateToken");
-      //   navigate(location.state?.from?.pathname || "/");
+      //todo
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });
