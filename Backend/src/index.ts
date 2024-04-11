@@ -20,7 +20,9 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 import authRoutes from "./routes/user.route";
-
+app.use("/", (req: Request, res: Response) => {
+  res.send("hello");
+});
 app.use("/api/auth", authRoutes);
 app.listen(5000, () => {
   console.log("server running on port 5000");
