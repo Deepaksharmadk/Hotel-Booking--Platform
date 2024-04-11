@@ -25,13 +25,14 @@ app.use(
   })
 );
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
-import authRoutes from "./routes/user.route";
+import authRoutes from "./routes/auth.route";
 import myHotelRoutes from "./routes/myHotel.route";
-app.use("/", (req: Request, res: Response) => {
-  res.send("hello");
-});
+import userRoutes from "./routes/user.route";
+
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
+
 app.listen(5000, () => {
   console.log("server running on port 5000");
 });

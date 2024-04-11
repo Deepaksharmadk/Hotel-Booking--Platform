@@ -1,5 +1,5 @@
 import User from "../model/user.model";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { validationResult } from "express-validator";
@@ -16,6 +16,7 @@ export const Register = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "User already exists" });
     }
     user = new User(req.body);
+    console.log(req.body);
     await user.save();
     const token = jwt.sign(
       { userId: user.id },
@@ -72,7 +73,7 @@ export const verifyUser = (req: Request, res: Response) => {
   res.status(200).send({ userId: req.userId });
   console.log(res.status(200).send({ userId: req.userId }));
 };
-export const logOut = async (req: Request, res: Response) => {
+export const logOut = async (_req: Request, res: Response) => {
   res.cookie("auth_token", "", {
     expires: new Date(0),
   });
