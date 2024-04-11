@@ -4,8 +4,14 @@ import cors from "cors";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
 mongoose.connect(process.env.MONGO_URL as string).then(() => {
   console.log("database connected");
+});
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 const app = express();
 app.use(cookieParser());
@@ -20,10 +26,12 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 import authRoutes from "./routes/user.route";
+import myHotelRoutes from "./routes/myHotel.route";
 app.use("/", (req: Request, res: Response) => {
   res.send("hello");
 });
 app.use("/api/auth", authRoutes);
+app.use("/api/my-hotels", myHotelRoutes);
 app.listen(5000, () => {
   console.log("server running on port 5000");
 });
