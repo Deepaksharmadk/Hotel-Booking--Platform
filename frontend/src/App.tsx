@@ -1,14 +1,14 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./Layouts/Layouts";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
+import Register from "./pages/Register.tsx";
+import Home from "./pages/Home.tsx";
+import SignIn from "./pages/SignIn.tsx";
 
 function App() {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -36,7 +36,7 @@ function App() {
             }
           />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
