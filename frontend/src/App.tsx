@@ -4,8 +4,12 @@ import Layout from "./Layouts/Layouts";
 import Register from "./pages/Register.tsx";
 import Home from "./pages/Home.tsx";
 import SignIn from "./pages/SignIn.tsx";
+import { useAppContext } from "./context/AppContext.tsx";
+
+import AddHotel from "./pages/Addhotal.tsx";
 
 function App() {
+  const { isLoggedIn } = useAppContext();
   return (
     <>
       <BrowserRouter>
@@ -35,6 +39,18 @@ function App() {
               </Layout>
             }
           />
+          {isLoggedIn && (
+            <>
+              <Route
+                path="/add-hotel"
+                element={
+                  <Layout>
+                    <AddHotel />
+                  </Layout>
+                }
+              />
+            </>
+          )}
         </Routes>
       </BrowserRouter>
     </>
