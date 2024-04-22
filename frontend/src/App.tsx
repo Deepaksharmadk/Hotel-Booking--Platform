@@ -7,7 +7,7 @@ import SignIn from "./pages/SignIn.tsx";
 import { useAppContext } from "./context/AppContext.tsx";
 
 import AddHotel from "./pages/Addhotal.tsx";
-import myhotel from "./pages/MyHotel.tsx";
+
 import MyHotels from "./pages/MyHotel.tsx";
 import EditHotel from "./pages/EditHotel.tsx";
 
