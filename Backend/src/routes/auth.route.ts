@@ -1,5 +1,5 @@
 import express from "express";
-import verifyToken from "../middlwares/auth";
+import verifyToken from "../middleare/auth";
 import { LoginValidation } from "../uttlis/validator";
 import { Login, verifyUser, logOut } from "../controller/user.controller";
 

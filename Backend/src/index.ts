@@ -10,9 +10,11 @@ mongoose.connect(process.env.MONGO_URL as string).then(() => {
 });
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
+
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+console.log(process.env.CLOUDINARY_NAME);
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
