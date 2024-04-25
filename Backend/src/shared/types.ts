@@ -23,6 +23,14 @@ export type HotelType = {
   lastUpdated: Date;
   bookings: BookingType[];
 };
+export type HotelSearchResponse = {
+  data: HotelType[];
+  pagination: {
+    total: number;
+    page: number;
+    pages: number;
+  };
+};
 
 export type BookingType = {
   _id: string;

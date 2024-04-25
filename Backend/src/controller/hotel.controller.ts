@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { HotelSearchResponse } from "../shared/types";
 import Hotel from "../model/hotel.model";
-const hotelSearch = async (req: Request, res: Response) => {
+export const hotelSearch = async (req: Request, res: Response) => {
   try {
     const pageSize = 5;
     const pageNumber = parseInt(
