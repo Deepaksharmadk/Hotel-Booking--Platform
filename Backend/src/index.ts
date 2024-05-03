@@ -26,7 +26,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
 import authRoutes from "./routes/auth.route";
 import myHotelRoutes from "./routes/myHotel.route";
 import userRoutes from "./routes/user.route";
@@ -35,6 +35,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
 
-app.listen(7000, () => {
+app.listen(process.env.PORT, () => {
   console.log("server running on port 7000");
 });
