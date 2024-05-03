@@ -35,6 +35,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/my-hotels", myHotelRoutes);
 
-app.listen(5000, () => {
-  console.log("server running on port 5000");
+app.listen(7000, () => {
+  console.log("server running on port 7000");
 });
