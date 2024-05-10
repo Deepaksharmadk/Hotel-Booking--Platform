@@ -32,7 +32,6 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-console.log(process.env.FRONTEND_URL);
 
 import authRoutes from "./routes/auth.route";
 import myHotelRoutes from "./routes/myHotel.route";
