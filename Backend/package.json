@@ -33,6 +33,6 @@
     "@types/node": "^20.12.5",
     "node": "^18.20.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   }
 }
